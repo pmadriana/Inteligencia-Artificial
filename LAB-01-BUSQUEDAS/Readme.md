@@ -1,7 +1,16 @@
 Integrantes:
 
 -Adriana Perez Mayta
+
 -Alejandro Risco Davalos
+
+SE IMPLEMENTARON LOS SIGUIENTES ALGORITMOS:
+
+- Busqueda en Amplitud (BFS)
+
+- Busqueda en Profundidad (DFS)
+
+- Mejor el Primero (best first)
 
 INSTRUCCIONES:
 
@@ -12,3 +21,4 @@ INSTRUCCIONES:
 *Para poner un obstaculo, selecionar el punto con click medio del mouse. 
 
 En la parte de abajo aparecera el tiempo, el tamaño del camino, y la ruta.
+
