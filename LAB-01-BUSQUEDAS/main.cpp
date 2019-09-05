@@ -279,48 +279,7 @@ void printBest()
     }
     imprimir_ventana(10, 591, camino);
 }
-void printA()
-{
-    int prev[num_points], dist[num_points];
 
-     clock_t ti;
-    ti = clock();
-    bool bf = A(prev, dist);
-    ti = clock() - ti;
-
-    if (bf == false)
-    {
-        cout << "No hay camino"<<endl;
-        return;
-    }
-    vector<int> path;
-    int temp = fin;
-    path.push_back(temp);
-    while (prev[temp] != -1) {
-        path.push_back(prev[temp]);
-        temp = prev[temp];
-    }
-
-  ///imprimir
-  glColor3f(0,0,0);
-  string t = "tiempo: " +  to_string(((float)ti) / CLOCKS_PER_SEC );
-  string d= "Tamanio del camino mas corto : " + to_string(dist[fin]);
-  imprimir_ventana(10,565,t);
-  imprimir_ventana(10, 578, d);
-  string camino= "Camino: " + to_string(path[path.size() - 1]) +", ";
-    ///
-
-    for (int i = path.size()-2 ; i >= 0; i--){
-        camino = camino + to_string(path[i]) + ", ";
-        glLineWidth(3);
-        glBegin(GL_LINES);
-        glColor3f(0.0, 0.3, 1.0);
-        glVertex2f(points[path[i+1]].x, points[path[i+1]].y);
-        glVertex2f(points[path[i]].x, points[path[i]].y);
-        glEnd();
-    }
-    imprimir_ventana(10, 591, camino);
-}
 void eliminar()
 {
     for(int i=0; i<ptsDel.size(); i++)
