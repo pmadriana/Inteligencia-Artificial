@@ -12,6 +12,12 @@ SE IMPLEMENTARON LOS SIGUIENTES ALGORITMOS:
 
 - Mejor el Primero (best first)
 
+<br>
+<img src="https://github.com/pmadriana/Inteligencia-Artificial/blob/master/LAB-01-BUSQUEDAS/bfs.PNG" />
+<img src="https://github.com/pmadriana/Inteligencia-Artificial/blob/master/LAB-01-BUSQUEDAS/dfs.PNG" />
+<img src="https://github.com/pmadriana/Inteligencia-Artificial/blob/master/LAB-01-BUSQUEDAS/best.PNG" />
+<br>
+
 INSTRUCCIONES:
 
 *Para modificar el punto inicial, seleccionar otro punto con click izquierdo.
