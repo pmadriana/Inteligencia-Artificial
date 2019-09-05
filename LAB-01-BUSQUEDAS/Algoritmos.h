@@ -114,63 +114,7 @@ float opt_euclidean(int u, int v)
     return ((x1*x1) + (y1*y1));
 }
 
-bool A(int prev[], int dist[])
-{
-    stack<int>q; // Create an empty PriorityQueue
-    q.push(inicio); // PriorityQueue pq; Insert "start" in pq.
-    int dista[25*25];
-    bool visited[num_points];
-    for (int i = 0; i < num_points; i++) {
-        visited[i] = false;
-        dist[i] = INT_MAX;
-        dista[i] = INT_MAX;
-        prev[i] = -1;
-    }
-    visited[inicio] = true;
-    dist[inicio] = 0;
-    dista[inicio] = 0;
 
-
-     while (!q.empty()) { //3) Until PriorityQueue is empty
-        int u = q.top();  // u = PriorityQueue.DeleteMin
-        q.pop();
-        vector<pair<float, int> >minimos;
-        for (int i = 0; i < graph[u].size(); i++) {
-                 if (visited[graph[u][i]] == false && points[graph[u][i]].state == 1){
-                 visited[graph[u][i]] = true;
-                //if(points[graph[u][i]].state)
-                srand((unsigned)time(0));
-                int j;
-                j = (rand()%100)+1;
-                 dista[graph[u][i]] = dista[u] +  j;
-                    minimos.push_back(make_pair(opt_euclidean(graph[u][i], fin) +  dista[graph[u][i]]  ,graph[u][i] ));
-
-
-        }
-         sort(minimos.begin(), minimos.end());
-        // cout<<"minimo: "<<minimos[0].first<<" "<<minimos[0].second<<endl;
-         for(int i = minimos.size()-1; i >= 0; i--){
-            q.push(minimos[i].second);
-            prev[minimos[i].second]= u;
-            dist[minimos[i].second] = dist[u]+1;
-             glLineWidth(1.5);
-                glBegin(GL_LINES);
-                glColor3f(1.0,0,0);
-                glVertex2f(points[u].x, points[u].y);
-                glVertex2f(points[minimos[i].second].x, points[minimos[i].second].y);
-                glEnd();
-            if(minimos[i].second  == fin)
-            {
-           //  cout<<"termino"<<endl;
-                return true;
-            }
-         }
-
-
-     }
-     }
-     return false;
-}
 
 bool best_first(int prev[], int dist[])
 {
@@ -226,30 +170,5 @@ bool best_first(int prev[], int dist[])
 }
 
 
-void DFS_normal(int k) {
-	//cout << "DFS : ";
-	int next=0;
-	stack<int> s;
-	vector<int> visited(25*25, 0);
-	s.push(k);
-	visited[k] = 1;
-	while (!s.empty()) {
-		int p = s.top();
-		cout << p << " ";
-		s.pop();
-		for (int j = 0; j<25*25; j++) {
-			if (graph[p][j] == 1 && visited[j] != 1) {
-				visited[j] = 1;
-				s.push(j);
-				next = s.top();
-				glLineWidth(1);
-				glBegin(GL_LINES);
-                glColor3f(1,0,0);
-                glVertex2f(points[p].x, points[p].y);
-                glVertex2f(points[next].x, points[next].y);
-                glEnd();
-			}
-		}
-	}
 }
 #endif // ALGORITMOS_H_INCLUDED
