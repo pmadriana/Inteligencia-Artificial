@@ -8,7 +8,6 @@
 #include <vector>
 #include <algorithm>
 #include <utility>
-//#include <quadTree.h>
 #define KEY_ESC 27
 
 using namespace std;
