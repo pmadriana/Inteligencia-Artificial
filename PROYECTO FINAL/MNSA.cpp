@@ -1,3 +1,0 @@
-#include <iostream> 
-
-cout<<jaja;
